@@ -1,0 +1,63 @@
+#include <stdio.h>
+
+#define MAX_SIZE 100  
+
+
+void push(int arr[], int *size, int value) {
+    if (*size < MAX_SIZE) {
+        arr[*size] = value; 
+        (*size)++;  
+    } else {
+        printf("Error: Array is full!\n");
+    }
+}
+
+
+void pop(int arr[], int *size) {
+    if (*size > 0) {
+        (*size)--;  
+        printf("Popped value: %d\n", arr[*size]);  
+    } else {
+        printf("Error: Array is empty!\n");
+    }
+}
+
+
+void display(int arr[], int size) {
+    if (size == 0) {
+        printf("Array is empty.\n");
+    } else {
+        printf("Array elements: ");
+        for (int i = 0; i < size; i++) {
+            printf("%d ", arr[i]);
+        }
+        printf("\n");
+    }
+}
+
+int main() {
+    int arr[MAX_SIZE];  
+    int size = 0;  
+
+    int a=printf("Enter 1st value to push=");
+        scanf("%d",&a);
+    int b=printf("Enter 2nd value to push=");
+        scanf("%d",&b);
+    int c=printf("Enter 3rd value to push=");
+        scanf("%d",&c);
+    
+    push(arr, &size, a);
+    push(arr, &size, b);
+    push(arr, &size, c);
+
+    
+    display(arr, size);
+
+   
+    pop(arr, &size);
+
+   
+    display(arr, size);
+
+    return 0;
+}
