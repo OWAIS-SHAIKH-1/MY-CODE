@@ -1,1 +1,23 @@
+# Function
+def Average(a,b):
+ avg=(a+b)/2
+ print(avg)
 
+def Greaterinteger(c,d):
+ if(c>d):
+  print("the greater integer",c)
+ else:
+  print("the greater integer is",d)
+
+def Gmean(a,b):
+ mean=float((a*b)/(a+b))
+ print(mean)
+
+def justpass(a,b):
+  pass
+
+Average(2,3)
+
+Greaterinteger(6,7)
+
+Gmean(100,50)
