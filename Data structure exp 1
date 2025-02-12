@@ -1,0 +1,65 @@
+#include <stdio.h>
+#define MAX_SIZE 100
+// Function to insert an element at a specific position
+void insertAtPosition(int arr[], int *size, int position, int value)
+{
+if (*size >= MAX_SIZE) {
+printf("Array is full! Cannot insert.\n");
+return;
+}
+// Check for valid position
+if (position < 0 || position > *size) {
+printf("Invalid position! Position should be between 0 and %d.\n", *size);
+return;
+}
+// Shift elements to the right
+for (int i = *size; i > position; i--) {
+arr[i] = arr[i - 1];
+}
+// Insert the element
+arr[position] = value;
+(*size)++;
+}
+// Function to delete an element at a specific position
+void deleteAtPosition(int arr[], int *size, int position) {
+if (*size == 0) {
+printf("Array is empty! Cannot delete.\n");
+return;
+}
+// Check for valid position
+if (position < 0 || position >= *size) {
+printf("Invalid position! Position should be between 0 and %d.\n", *size - 1);
+return;
+}
+// Shift elements to the left
+for (int i = position; i < *size - 1; i++) {
+arr[i] = arr[i + 1];
+}
+(*size)--;
+}
+// Function to print the array
+void printArray(int arr[], int size) {
+if (size == 0) {
+printf("Array is empty.\n");
+return;
+}
+for (int i = 0; i < size; i++) {
+printf("%d ", arr[i]);
+}
+printf("\n");
+}
+int main() {
+int arr[MAX_SIZE];
+int size = 0; // Current number of elements in the array
+// Inserting elements at different positions
+insertAtPosition(arr, &size, 0, 10); // Insert 10 at position 0
+insertAtPosition(arr, &size, 1, 20); // Insert 20 at position 1
+insertAtPosition(arr, &size, 1, 15); // Insert 15 at position 1
+printf("Array after insertions: ");
+printArray(arr, size);
+// Deleting element at position 1
+deleteAtPosition(arr, &size, 1);
+printf("Array after deletion: ");
+printArray(arr, size);
+return 0;
+}
