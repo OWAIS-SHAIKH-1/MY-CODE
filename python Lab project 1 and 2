@@ -1,0 +1,76 @@
+
+# practical 1
+print("Hello Sir\Ma'am")
+a=input("what is your good name:")
+print("Good Moring",a)
+print("Have a Good day")
+print("Thank you for Choosing our Website",a)
+print('Visit Again Soon')
+
+
+
+# practical 1.2
+
+n=input("Enter the radius of a circle:")
+radius=float(n)
+
+Carea=3.14*radius*radius
+print("The area of a circle is",Carea)
+
+
+
+m=input("Enter the side of a Square:")
+side=float(m)
+
+Sarea=side*side
+print("The area of a Square is",Sarea)
+
+
+l=input("Enter the length of a Rectangle:")
+length=float(l)
+
+
+p=input("Enter the breadth of a Rectangle:")
+breadth=float(p)
+
+Rarea=length*breadth
+print("The area of the Rectangle is ",Rarea)
+
+q=input("Enter the base of a Triangle:")
+base=float(q)
+r=input("Enter the height of a Triangle:")
+hight=float(r)
+Tarea=0.5*base*hight
+print('the area of the Triangle is',Tarea)
+
+
+
+# practical 2.1
+BS=input("Enter the basic salary:")
+basic=float(BS)
+DA=0.7*basic
+TA=0.3*basic
+HRA=0.1*basic
+Gross=basic+DA+TA+HRA
+print("the dearness allowance is",DA)
+print("the Travel allowance is",TA)
+print("the Home rent allowance is",HRA)
+print("the gross salary of the employee is",Gross)
+
+
+
+# practical 2.2
+A=input('Enter first no: ')
+B=input('Enter Second no: ')
+a=float(A)
+b=float(B)
+sum=a+b
+sub=a-b
+mul=a*b
+div=a/b
+mod=a%b
+print("the sum of two no. is:",sum)
+print("the sub of two no. is:",sub)
+print("the mul of two no. is:",mul)
+print("the div of two no. is:",div)
+print("the mod of two no. is:",mod)
