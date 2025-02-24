@@ -1,0 +1,88 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
+
+// Define stack structure
+#define MAX 100
+typedef struct Stack {
+    char arr[MAX];
+    int top;
+} Stack;
+
+// Function to create and initialize stack
+void initStack(Stack *stack) {
+    stack->top = -1;
+}
+
+// Function to check if stack is empty
+int isEmpty(Stack *stack) {
+    return stack->top == -1;
+}
+
+// Function to check the precedence of operators
+int precedence(char c) {
+    if (c == '+' || c == '-') {
+        return 1;
+    } else if (c == '*' || c == '/') {
+        return 2;
+    } else {
+        return 0;
+    }
+}
+
+// Function to perform infix to postfix conversion
+void infixToPostfix(char *infix, char *postfix) {
+    Stack stack;
+    initStack(&stack);
+    int i = 0, j = 0;
+
+    while (infix[i] != '\0') {
+        char ch = infix[i];
+       
+        // If the character is an operand (alphabet), ad
+        if (isalpha(ch)) {
+            postfix[j++] = ch;
+        }
+        // If the character is an open parenthesis, push
+        else if (ch == '(') {
+            stack.arr[++stack.top] = ch;
+        }
+        // If the character is a closing parenthesis, po
+        else if (ch == ')') {
+            while (!isEmpty(&stack) && stack.arr[stack.t
+                postfix[j++] = stack.arr[stack.top--];
+            }
+            stack.top--; // Discard the '('
+        }
+        // If the character is an operator, pop operator
+        else if (ch == '+' || ch == '-' || ch == '*' ||
+            while (!isEmpty(&stack) && precedence(stack.
+                postfix[j++] = stack.arr[stack.top--];
+            }
+            stack.arr[++stack.top] = ch;
+        }
+        i++;
+    }
+
+    // Pop all remaining operators from the stack
+    while (!isEmpty(&stack)) {
+        postfix[j++] = stack.arr[stack.top--];
+    }
+
+    postfix[j] = '\0'; // Null-terminate the postfix exp
+}
+
+int main() {
+    char infix[100], postfix[100];
+
+    // Input the infix expression
+    printf("Enter infix expression: ");
+    fgets(infix, sizeof(infix), stdin); // Use fgets for
+
+    // Convert infix to postfix
+    infixToPostfix(infix, postfix);
+
+    // Output the expression
+    printf("Postfix expression: %s\n", postfix);
+    return 0;
+}
