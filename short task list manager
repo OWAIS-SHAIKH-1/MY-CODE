@@ -1,0 +1,58 @@
+
+
+tasks = []  # List to store tasks
+
+def show_tasks():
+    """Display all tasks."""
+    if not tasks:
+        print("\nNo tasks added yet.")
+    else:
+        print("\nTask List:")
+        for i, task in enumerate(tasks, start=1):
+            print(f"{i}. {task[0]} - Priority: {task[1]}")
+
+def add_task():
+    """Add a new task."""
+    name = input("Enter task name: ")
+    priority = input("Enter priority (1-5): ")
+    tasks.append((name, priority))
+    print("Task added!")
+
+def remove_task():
+    """Remove a task by name."""
+    name = input("Enter task name to remove: ")
+    for task in tasks:
+        if task[0] == name:
+            tasks.remove(task)
+            print("Task removed!")
+            return
+    print("Task not found.")
+
+def sort_tasks():
+    """Sort tasks by priority (ascending)."""
+    tasks.sort(key=lambda x: x[1])
+    print("Tasks sorted by priority!")
+
+while True:
+    print("\nTask Manager")
+    print("1. Show Tasks")
+    print("2. Add Task")
+    print("3. Remove Task")
+    print("4. Sort Tasks")
+    print("5. Exit")
+
+    choice = input("Enter your choice: ")
+
+    if choice == "1":
+        show_tasks()
+    elif choice == "2":
+        add_task()
+    elif choice == "3":
+        remove_task()
+    elif choice == "4":
+        sort_tasks()
+    elif choice == "5":
+        print("Goodbye!")
+        break
+    else:
+        print("Invalid choice. Try again.")
